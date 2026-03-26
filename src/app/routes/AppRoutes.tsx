@@ -12,6 +12,9 @@ const DeviceDetailsPage = lazy(
 const StationsPage = lazy(
 	() => import('../../features/stations/pages/StationsPage'),
 );
+const StationDetailsPage = lazy(
+	() => import('../../features/stations/pages/StationDetailsPage'),
+);
 
 export default function AppRoutes(): JSX.Element {
 	return (
@@ -21,6 +24,7 @@ export default function AppRoutes(): JSX.Element {
 				<Route path="/devices" element={<DevicesPage />} />
 				<Route path="/devices/:id" element={<DeviceDetailsPage />} />
 				<Route path="/stations" element={<StationsPage />} />
+				<Route path="/stations/:id" element={<StationDetailsPage />} />
 			</Routes>
 		</Suspense>
 	);

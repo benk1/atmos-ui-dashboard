@@ -1,7 +1,8 @@
 import type { JSX } from 'react';
+import { Link } from 'react-router-dom';
+import { formatDateTime } from '../../../utils/formatDateTime';
 import type { Station } from '../types/station';
 import { formatStationStatus } from '../utils/formatStationStatus';
-import { formatDateTime } from '../../../utils/formatDateTime';
 
 type StationCardProps = {
 	station: Station;
@@ -61,6 +62,12 @@ export default function StationCard({
 					<dd>{formatDateTime(station.lastMaintenance)}</dd>
 				</div>
 			</dl>
+
+			<div className="device-card__actions">
+				<Link to={`/stations/${station.id}`} className="device-card__link">
+					View details
+				</Link>
+			</div>
 		</article>
 	);
 }

@@ -1,5 +1,5 @@
 import { useFetch } from '../../../hooks/useFetch';
-import { getStations } from '../services/stationService';
+import { getStations } from '../services/stationsService';
 import type { Station } from '../types/station';
 
 type UseStationsResult = {

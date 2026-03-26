@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react';
+import { useCallback } from 'react';
+import { useFetchItem } from '../../../hooks/useFetchItem';
 import { getDeviceById } from '../services/devicesService';
 import type { Device } from '../types/device';
 
@@ -9,39 +10,21 @@ type UseDeviceResult = {
 };
 
 export function useDevice(id: number | null): UseDeviceResult {
-	const [device, setDevice] = useState<Device | null>(null);
-	const [isLoading, setIsLoading] = useState<boolean>(true);
-	const [error, setError] = useState<string | null>(null);
+	const isValidId = id !== null;
 
-	useEffect(() => {
-		if (id === null) {
-			setDevice(null);
-			setError('Invalid device id.');
-			setIsLoading(false);
-			return;
-		}
-
-		const fetchDevice = async () => {
-			try {
-				setIsLoading(true);
-				setError(null);
-
-				const data = await getDeviceById(id);
-				setDevice(data);
-			} catch {
-				setError('Failed to load device details.');
-				setDevice(null);
-			} finally {
-				setIsLoading(false);
-			}
-		};
-
-		void fetchDevice();
+	const fetchDevice = useCallback(() => {
+		return getDeviceById(id as number);
 	}, [id]);
 
+	const { data, isLoading, error } = useFetchItem<Device>(
+		fetchDevice,
+		'Failed to load device details.',
+		isValidId,
+	);
+
 	return {
-		device,
+		device: data,
 		isLoading,
-		error,
+		error: !isValidId ? 'Invalid device id.' : error,
 	};
 }

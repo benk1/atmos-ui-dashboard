@@ -15,6 +15,7 @@ const StationsPage = lazy(
 const StationDetailsPage = lazy(
 	() => import('../../features/stations/pages/StationDetailsPage'),
 );
+const NotFoundPage = lazy(() => import('./NotFoundPage'));
 
 export default function AppRoutes(): JSX.Element {
 	return (
@@ -25,6 +26,7 @@ export default function AppRoutes(): JSX.Element {
 				<Route path="/devices/:id" element={<DeviceDetailsPage />} />
 				<Route path="/stations" element={<StationsPage />} />
 				<Route path="/stations/:id" element={<StationDetailsPage />} />
+				<Route path="*" element={<NotFoundPage />} />
 			</Routes>
 		</Suspense>
 	);

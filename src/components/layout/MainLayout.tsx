@@ -13,7 +13,7 @@ export default function MainLayout({ children }: MainLayoutProps): JSX.Element {
 				<div className="container">
 					<div className="app-header__content">
 						<div>
-							<h1 className="app-title">Vaisala UI Practice</h1>
+							<h1 className="app-title">atmos-ui-dashboard</h1>
 							<p className="app-subtitle">
 								Modern React + TypeScript frontend training project
 							</p>

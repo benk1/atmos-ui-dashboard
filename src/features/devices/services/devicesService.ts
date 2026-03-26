@@ -5,3 +5,8 @@ export async function getDevices(): Promise<Device[]> {
 	const response = await apiClient.get<Device[]>('/devices');
 	return response.data;
 }
+
+export async function getDeviceById(id: number): Promise<Device> {
+	const response = await apiClient.get<Device>(`/devices/${id}`);
+	return response.data;
+}

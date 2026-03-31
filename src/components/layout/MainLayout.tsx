@@ -1,6 +1,5 @@
-import type { ReactNode } from 'react';
+import type { JSX, ReactNode } from 'react';
 import { NavLink } from 'react-router-dom';
-import type { JSX } from 'react';
 
 type MainLayoutProps = {
 	children: ReactNode;
@@ -13,7 +12,7 @@ export default function MainLayout({ children }: MainLayoutProps): JSX.Element {
 				<div className="container">
 					<div className="app-header__content">
 						<div>
-							<h1 className="app-title">atmos-ui-dashboard</h1>
+							<h1 className="app-title">Atmos UI Dashboard</h1>
 							<p className="app-subtitle">
 								Modern React + TypeScript frontend training project
 							</p>
@@ -40,6 +39,17 @@ export default function MainLayout({ children }: MainLayoutProps): JSX.Element {
 								}
 							>
 								Stations
+							</NavLink>
+
+							<NavLink
+								to="/soundings"
+								className={({ isActive }) =>
+									isActive
+										? 'app-nav__link app-nav__link--active'
+										: 'app-nav__link'
+								}
+							>
+								Soundings
 							</NavLink>
 						</nav>
 					</div>

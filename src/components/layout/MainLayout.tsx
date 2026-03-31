@@ -51,6 +51,17 @@ export default function MainLayout({ children }: MainLayoutProps): JSX.Element {
 							>
 								Soundings
 							</NavLink>
+
+							<NavLink
+								to="/alerts"
+								className={({ isActive }) =>
+									isActive
+										? 'app-nav__link app-nav__link--active'
+										: 'app-nav__link'
+								}
+							>
+								Alerts
+							</NavLink>
 						</nav>
 					</div>
 				</div>

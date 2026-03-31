@@ -1,4 +1,5 @@
 import type { JSX } from 'react';
+import { Link } from 'react-router-dom';
 import { formatDateTime } from '../../../utils/formatDateTime';
 import type { Alert } from '../types/alert';
 
@@ -25,7 +26,19 @@ export default function AlertCard({ alert }: AlertCardProps): JSX.Element {
 				<div>
 					<h3 className="alert-card__title">{alert.code}</h3>
 					<p className="alert-card__subtitle">
-						Station {alert.stationId} · Device {alert.deviceId}
+						<Link
+							to={`/stations/${alert.stationId}`}
+							className="entity-link entity-link--inline"
+						>
+							Station {alert.stationId}
+						</Link>
+						{' · '}
+						<Link
+							to={`/devices/${alert.deviceId}`}
+							className="entity-link entity-link--inline"
+						>
+							Device {alert.deviceId}
+						</Link>
 					</p>
 				</div>
 

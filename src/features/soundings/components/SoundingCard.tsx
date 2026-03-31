@@ -1,6 +1,7 @@
-import type { JSX } from 'react';
+import { Link } from 'react-router-dom';
 import { formatDateTime } from '../../../utils/formatDateTime';
 import type { Sounding } from '../types/sounding';
+import type { JSX } from 'react';
 
 type SoundingCardProps = {
 	sounding: Sounding;
@@ -49,13 +50,24 @@ export default function SoundingCard({
 
 			<dl className="sounding-card__details">
 				<div>
-					<dt>Station ID</dt>
-					<dd>{sounding.stationId}</dd>
+					<dt>Station</dt>
+					<dd>
+						<Link
+							to={`/stations/${sounding.stationId}`}
+							className="entity-link"
+						>
+							Station {sounding.stationId}
+						</Link>
+					</dd>
 				</div>
 
 				<div>
-					<dt>Device ID</dt>
-					<dd>{sounding.deviceId}</dd>
+					<dt>Device</dt>
+					<dd>
+						<Link to={`/devices/${sounding.deviceId}`} className="entity-link">
+							Device {sounding.deviceId}
+						</Link>
+					</dd>
 				</div>
 
 				<div>

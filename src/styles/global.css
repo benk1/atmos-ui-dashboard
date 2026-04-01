@@ -544,7 +544,6 @@ a {
 	}
 }
 
-
 .card-actions {
 	display: flex;
 	justify-content: flex-start;
@@ -1046,4 +1045,9 @@ a {
 	.recent-list__side {
 		text-align: left;
 	}
+}
+
+.summary-card__content {
+	display: grid;
+	gap: 0.5rem;
 }

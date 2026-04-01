@@ -7,6 +7,7 @@ import { useAlerts } from '../../alerts/hooks/useAlerts';
 import { useDevices } from '../../devices/hooks/useDevices';
 import { useSoundings } from '../../soundings/hooks/useSoundings';
 import { useStations } from '../../stations/hooks/useStations';
+import SummaryCard from '../SummaryCard';
 
 export default function DashboardPage(): JSX.Element {
 	const {
@@ -68,40 +69,37 @@ export default function DashboardPage(): JSX.Element {
 			</div>
 
 			<div className="dashboard-grid">
-				<article className="summary-card">
-					<h3 className="summary-card__title">Devices</h3>
-					<p className="summary-card__value">{devices.length}</p>
-					<p className="summary-card__meta">{onlineDevicesCount} online</p>
-				</article>
+				<SummaryCard
+					title="Devices"
+					value={devices.length}
+					meta={`${onlineDevicesCount} online`}
+				/>
 
-				<article className="summary-card">
-					<h3 className="summary-card__title">Stations</h3>
-					<p className="summary-card__value">{stations.length}</p>
-					<p className="summary-card__meta">
-						{operationalStationsCount} operational
-					</p>
-				</article>
+				<SummaryCard
+					title="Stations"
+					value={stations.length}
+					meta={`${operationalStationsCount} operational`}
+				/>
 
-				<article className="summary-card">
-					<h3 className="summary-card__title">Soundings</h3>
-					<p className="summary-card__value">{soundings.length}</p>
-					<p className="summary-card__meta">Recent launches and runs</p>
-				</article>
+				<SummaryCard
+					title="Soundings"
+					value={soundings.length}
+					meta="Recent launches and runs"
+				/>
 
-				<article className="summary-card">
-					<h3 className="summary-card__title">Alerts</h3>
-					<p className="summary-card__value">{alerts.length}</p>
-					<p className="summary-card__meta">{openAlertsCount} open</p>
-				</article>
+				<SummaryCard
+					title="Alerts"
+					value={alerts.length}
+					meta={`${openAlertsCount} open`}
+				/>
 
-				<article className="summary-card">
-					<h3 className="summary-card__title">Critical Alerts</h3>
-					<p className="summary-card__value">{criticalAlertsCount}</p>
-					<p className="summary-card__meta">Requires close attention</p>
-				</article>
+				<SummaryCard
+					title="Critical Alerts"
+					value={criticalAlertsCount}
+					meta="Requires close attention"
+				/>
 
-				<article className="summary-card">
-					<h3 className="summary-card__title">Quick Links</h3>
+				<SummaryCard title="Quick Links" value="Navigate">
 					<div className="summary-card__links">
 						<Link to="/devices" className="entity-link">
 							View Devices
@@ -116,7 +114,7 @@ export default function DashboardPage(): JSX.Element {
 							View Alerts
 						</Link>
 					</div>
-				</article>
+				</SummaryCard>
 			</div>
 
 			<section className="panel" aria-labelledby="recent-soundings-title">

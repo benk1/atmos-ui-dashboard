@@ -20,8 +20,9 @@ const StationDetailsPage = lazy(
 const SoundingsPage = lazy(
 	() => import('../../features/soundings/pages/SoundingsPage'),
 );
-const AlertsPage = lazy(
-	() => import('../../features/alerts/pages/AlertsPage'),
+const AlertsPage = lazy(() => import('../../features/alerts/pages/AlertsPage'));
+const AlertDetailsPage = lazy(
+	() => import('../../features/alerts/pages/AlertDetailsPage'),
 );
 const NotFoundPage = lazy(() => import('./NotFoundPage'));
 
@@ -36,6 +37,7 @@ export default function AppRoutes(): JSX.Element {
 				<Route path="/stations/:id" element={<StationDetailsPage />} />
 				<Route path="/soundings" element={<SoundingsPage />} />
 				<Route path="/alerts" element={<AlertsPage />} />
+				<Route path="/alerts/:id" element={<AlertDetailsPage />} />
 				<Route path="*" element={<NotFoundPage />} />
 			</Routes>
 		</Suspense>

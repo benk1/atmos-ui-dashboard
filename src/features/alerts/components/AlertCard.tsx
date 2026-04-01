@@ -76,6 +76,12 @@ export default function AlertCard({ alert }: AlertCardProps): JSX.Element {
 						<dd>{formatSeverityLabel(alert.severity)}</dd>
 					</div>
 				</dl>
+
+				<div className="device-card__actions">
+					<Link to={`/alerts/${alert.id}`} className="device-card__link">
+						View details
+					</Link>
+				</div>
 			</div>
 		</article>
 	);

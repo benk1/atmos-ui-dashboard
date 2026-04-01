@@ -58,8 +58,8 @@ export default function DeviceCard({ device }: DeviceCardProps): JSX.Element {
 				</div>
 			</dl>
 
-			<div className="device-card__actions">
-				<Link to={`/devices/${device.id}`} className="device-card__link">
+			<div className="card-actions">
+				<Link to={`/devices/${device.id}`} className="details-link">
 					View details
 				</Link>
 			</div>

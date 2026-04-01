@@ -77,8 +77,8 @@ export default function AlertCard({ alert }: AlertCardProps): JSX.Element {
 					</div>
 				</dl>
 
-				<div className="device-card__actions">
-					<Link to={`/alerts/${alert.id}`} className="device-card__link">
+				<div className="card-actions">
+					<Link to={`/alerts/${alert.id}`} className="details-link">
 						View details
 					</Link>
 				</div>

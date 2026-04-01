@@ -63,8 +63,8 @@ export default function StationCard({
 				</div>
 			</dl>
 
-			<div className="device-card__actions">
-				<Link to={`/stations/${station.id}`} className="device-card__link">
+			<div className="card-actions">
+				<Link to={`/stations/${station.id}`} className="details-link">
 					View details
 				</Link>
 			</div>

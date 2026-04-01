@@ -131,8 +131,8 @@ export default function SoundingCard({
 				</div>
 			</dl>
 
-			<div className="device-card__actions">
-				<Link to={`/soundings/${sounding.id}`} className="device-card__link">
+			<div className="card-actions">
+				<Link to={`/soundings/${sounding.id}`} className="details-link">
 					View details
 				</Link>
 			</div>

@@ -20,6 +20,18 @@ export default function MainLayout({ children }: MainLayoutProps): JSX.Element {
 
 						<nav className="app-nav" aria-label="Primary">
 							<NavLink
+								to="/"
+								end
+								className={({ isActive }) =>
+									isActive
+										? 'app-nav__link app-nav__link--active'
+										: 'app-nav__link'
+								}
+							>
+								Dashboard
+							</NavLink>
+
+							<NavLink
 								to="/devices"
 								className={({ isActive }) =>
 									isActive

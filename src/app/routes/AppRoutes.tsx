@@ -1,7 +1,10 @@
 import { lazy, Suspense, type JSX } from 'react';
-import { Navigate, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import LoadingState from '../../components/feedback/LoadingState';
 
+const DashboardPage = lazy(
+	() => import('../../features/dashboard/pages/DashboardPage'),
+);
 const DevicesPage = lazy(
 	() => import('../../features/devices/pages/DevicesPage'),
 );
@@ -17,14 +20,16 @@ const StationDetailsPage = lazy(
 const SoundingsPage = lazy(
 	() => import('../../features/soundings/pages/SoundingsPage'),
 );
-const AlertsPage = lazy(() => import('../../features/alerts/pages/AlertsPage'));
+const AlertsPage = lazy(
+	() => import('../../features/alerts/pages/AlertsPage'),
+);
 const NotFoundPage = lazy(() => import('./NotFoundPage'));
 
 export default function AppRoutes(): JSX.Element {
 	return (
 		<Suspense fallback={<LoadingState message="Loading page..." />}>
 			<Routes>
-				<Route path="/" element={<Navigate to="/devices" replace />} />
+				<Route path="/" element={<DashboardPage />} />
 				<Route path="/devices" element={<DevicesPage />} />
 				<Route path="/devices/:id" element={<DeviceDetailsPage />} />
 				<Route path="/stations" element={<StationsPage />} />

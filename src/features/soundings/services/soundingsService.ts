@@ -5,3 +5,8 @@ export async function getSoundings(): Promise<Sounding[]> {
 	const response = await apiClient.get<Sounding[]>('/soundings');
 	return response.data;
 }
+
+export async function getSoundingById(id: number): Promise<Sounding> {
+	const response = await apiClient.get<Sounding>(`/soundings/${id}`);
+	return response.data;
+}

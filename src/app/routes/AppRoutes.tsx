@@ -11,6 +11,9 @@ const DevicesPage = lazy(
 const DeviceDetailsPage = lazy(
 	() => import('../../features/devices/pages/DeviceDetailsPage'),
 );
+const DeviceSettingsPage = lazy(
+	() => import('../../features/devices/pages/DeviceSettingsPage'),
+);
 const StationsPage = lazy(
 	() => import('../../features/stations/pages/StationsPage'),
 );
@@ -36,6 +39,7 @@ export default function AppRoutes(): JSX.Element {
 				<Route path="/" element={<DashboardPage />} />
 				<Route path="/devices" element={<DevicesPage />} />
 				<Route path="/devices/:id" element={<DeviceDetailsPage />} />
+				<Route path="/devices/:id/settings" element={<DeviceSettingsPage />} />
 				<Route path="/stations" element={<StationsPage />} />
 				<Route path="/stations/:id" element={<StationDetailsPage />} />
 				<Route path="/soundings" element={<SoundingsPage />} />

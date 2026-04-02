@@ -28,9 +28,19 @@ export default function DeviceDetailsPage(): JSX.Element {
 						</p>
 					</div>
 
-					<Link to="/devices" className="back-link">
-						← Back to Devices
-					</Link>
+					<div className="card-actions">
+						<Link to="/devices" className="back-link">
+							← Back to Devices
+						</Link>
+						{device && (
+							<Link
+								to={`/devices/${device.id}/settings`}
+								className="details-link"
+							>
+								Edit Settings
+							</Link>
+						)}
+					</div>
 				</div>
 			</div>
 
